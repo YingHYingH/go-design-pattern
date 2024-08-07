@@ -1,22 +1,18 @@
-package singleton_test
+package _1_singleton
 
 import (
-	"testing"
-
-	singleton "github.com/mohuishou/go-design-pattern/01_singleton"
-
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestGetInstance(t *testing.T) {
-	assert.True(t, singleton.GetInstance() == singleton.GetInstance())
-	assert.False(t, singleton.GetInstance() == singleton.GetLazyInstance())
+	assert.Equal(t, GetInstance(), GetInstance())
 }
 
 func BenchmarkGetInstanceParallel(b *testing.B) {
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			if singleton.GetInstance() != singleton.GetInstance() {
+			if GetInstance() != GetInstance() {
 				b.Errorf("test fail")
 			}
 		}

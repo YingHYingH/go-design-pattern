@@ -1,4 +1,4 @@
-package singleton
+package _1_singleton
 
 import "sync"
 
@@ -7,12 +7,11 @@ var (
 	once          = &sync.Once{}
 )
 
-// GetLazyInstance 懒汉式
 func GetLazyInstance() *Singleton {
-	// once 内的方法只会执行一次，所以不需要再次判断
-	once.Do(func() {
-		lazySingleton = &Singleton{a: "test"}
-	})
-
+	if lazySingleton == nil {
+		once.Do(func() {
+			lazySingleton = &Singleton{a: "test"}
+		})
+	}
 	return lazySingleton
 }

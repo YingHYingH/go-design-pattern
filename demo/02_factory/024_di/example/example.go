@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	di "github.com/mohuishou/go-design-pattern/02_factory/024_di"
+	di "github.com/mohuishou/go-design-pattern/demo/02_factory/024_di"
 )
 
 // A 依赖关系 A -> B -> C
